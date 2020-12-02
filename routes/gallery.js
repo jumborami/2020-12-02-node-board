@@ -62,7 +62,7 @@ router.post('/save', isUser, upload.single('upfile'), async (req, res, next) => 
 router.get('/view/:id', async (req, res) => {
 	let connect, rs, pug;
 	try {
-		pug = {title: '갤러리 상세', js: ' gallery', css: 'gallery'};
+		pug = {title: '갤러리 상세', js: 'gallery', css: 'gallery'};
 		rs = await sqlGen('gallery', 'S', {where: ['id', req.params.id]});
 		pug.list = rs[0][0];
 		pug.list.wdate = moment(pug.list.wdate).format('YYYY-MM-DD HH:mm:ss');

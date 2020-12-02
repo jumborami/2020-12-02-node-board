@@ -35,4 +35,4 @@ block content
 				button.btn.btn-warning(onclick=`location.href='/gallery/write'`) 글쓰기
 			if user && user.id && user.id == list.uid
 				button.btn.btn-warning(onclick=`location.href='/gallery/update/${list.id}'`) 수정
-				button.btn.btn-dark(onclick=`onDelete(${list.id});`) 삭제
+				button.btn.btn-dark(onclick=`onDeleteG(${list.id});`) 삭제

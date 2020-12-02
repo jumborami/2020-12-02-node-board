@@ -16,7 +16,7 @@ block content
 					if list && list.savefile
 						.file-wrap.py-2.mb-2.border-bottom
 							span.font-weight-bold= list.realfile
-							a.fa.fa-times-circle.ml-2(href=`javascript: fileRemove(${list.id})`)
+							a.fa.fa-times-circle.ml-2(href=`javascript: fileRemoveG(${list.id})`)
 					input.form-control-file(name="upfile" type="file")
 				div.text
 					textarea.form-control(name="content" placeholder="내용을 입력하세요.")= `${list && list.content ? list.content : ''}`

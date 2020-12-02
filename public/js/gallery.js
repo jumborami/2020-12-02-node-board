@@ -1,8 +1,8 @@
-function onDelete(id) {
+function onDeleteG(id) {
 	confirm('정말로 삭제하시겠습니까?') ? location.href='/gallery/delete/'+id : "";
 }
 
-function fileRemove(id) {
+function fileRemoveG(id) {
 	if(confirm('첨부파일을 삭제하시겠습니까? 삭제시 영구삭제 됩니다.')) {
 		$.get('/gallery/fileRemove/'+id, function(r) {
 			if(r.code == 200){
