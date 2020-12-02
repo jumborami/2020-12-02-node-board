@@ -103,7 +103,7 @@ router.get('/update/:id', isUser, async (req, res, next) => {
 	let connect, rs, pug;
 	try {
 		pug = {title: '갤러리 수정', js: 'gallery', css: 'gallery'};
-		rs = await sqlGen('board', 'S', {
+		rs = await sqlGen('gallery', 'S', {
 			where: {
 				op: 'AND',
 				fields: [['id', req.params.id], ['uid', req.session.user.id]]
