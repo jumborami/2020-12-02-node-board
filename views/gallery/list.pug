@@ -1,0 +1,19 @@
+extends ../layout/default.pug
+block content
+	.wrap
+		div.title
+			h3= title
+			if user && user.id
+				hr
+				button.btn.btn-success(onclick="location.href='/gallery/write';") 글쓰기
+		.container
+			if lists.length > 0
+				div.row
+					each v in lists
+						div.col-6(style="height:300px;")
+							p= v.title
+							a(href=`/gallery/view/${v.id}` style="over-flow:hidden;")
+								img(src=`${v.imgSrc}` style="width:100%; height:auto;")
+			else
+				p.text-center 작성한 글이 없습니다.
+		include ../inc/pager.pug

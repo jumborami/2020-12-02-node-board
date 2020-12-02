@@ -1,0 +1,30 @@
+extends ../layout/default.pug
+block content
+	.wrap
+		div.title
+			h3= title
+		div.form-wrap
+			form(method="post" name="galleryForm" action=`${list ? '/gallery/saveUpdate' : '/gallery/save'}` enctype="multipart/form-data")
+				input(type="hidden" name="id" value=`${list && list.id ? list.id : ''}`)
+				div.line
+					label(style="width:10%") 제목
+					input.form-control(style="width:90%" type="text" name="title" placeholder="제목을 입력하세요." value=`${list && list.title ? list.title : ''}`)
+				div.line
+					label(style="width:10%") 작성자
+					input.form-control(style="width:90%" type="text" name="writer" placeholder="작성자를 입력하세요." value=`${list && list.writer ? list.writer : ''}`)
+				div
+					if list && list.savefile
+						.file-wrap.py-2.mb-2.border-bottom
+							span.font-weight-bold= list.realfile
+							a.fa.fa-times-circle.ml-2(href=`javascript: fileRemove(${list.id})`)
+					input.form-control-file(name="upfile" type="file")
+				div.text
+					textarea.form-control(name="content" placeholder="내용을 입력하세요.")= `${list && list.content ? list.content : ''}`
+				
+				div.btns.text-center
+					button.btn.btn-success(type="button" onclick="location.href='/gallery/list';") 목록
+					if list
+						button.btn.btn-warning 수정
+					else
+						button.btn.btn-primary 저장
+					button.btn.btn-dark(type="reset") 다시작성

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap');
+
+a:link, a:visited, a:active, a:hover {color: inherit; text-decoration:none;}
+* {margin: 0; padding: 0; font-family:Monaco, Roboto, 'Noto Sans KR';}
+
+header {position:fixed; width:100%; background-color: #888; color: #fff; padding: 1em; display: flex; justify-content: space-between; align-items: center; z-index:2;}
+header .logo {font-size: 1.2em;}
+header .navi-wrap {display: flex; justify-content: center; align-items: center;}
+header .navi {padding: 0.25em 0.5em;}
+header .navi:hover, header .navi:focus{color:#555;}
+
+.wrap {position:absolute; width:100%; height:calc(100vh - 64px); top:64px;}
+
+.bg {
+  position:absolute; width:100%; height:calc(100vh - 64px); top:64px;
+  background:#888;
+  background:-moz-linear-gradient(-45deg, #888 0%, #61d8ba 150%);
+  background:-webkit-linear-gradient(-45deg, #888 0%, #61d8ba 150%);
+  background:linear-gradient(170deg, #888 0%, #308872 150%);
+}
+
+.bg h5 {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); color:#fff;}

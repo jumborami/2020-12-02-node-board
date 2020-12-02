@@ -1,0 +1,31 @@
+extends ../layout/default.pug
+block content
+	.wrap
+		div.title
+			h3= title
+			if user && user.id
+				hr
+				button.btn.btn-success(onclick="location.href='/board/write';") 글쓰기
+		if lists.length > 0
+			table.table.table-bordered.text-center
+				thead.thead-light
+					tr
+						th 번호
+						th 제목
+						th 작성자
+						th 내용
+						th 작성일
+				tbody
+					each v in lists
+						tr
+							td= v.id
+							td.text-left
+								a(href=`/board/view/${v.id}`)= v.title
+									if v.savefile
+										i.fa.fa-file.ml-2
+							td= v.writer
+							td.text-left= v.content
+							td= v.wdate
+			include ../inc/pager.pug
+		else
+			p.text-center 작성한 글이 없습니다.

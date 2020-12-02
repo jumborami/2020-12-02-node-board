@@ -1,0 +1,20 @@
+extends ../layout/default.pug
+block content
+	.wrap
+		div.title
+			h3= title
+		form(name="loginForm" method="post" onsubmit="return onLogin(this);" action="/user/logon")
+			table.table.my-5.tb-join.border-bottom
+				tbody
+					tr
+						td.title 아이디
+						td.content
+							input.form-control(type="text" name="userid" placeholder="아이디")
+							.valid
+					tr
+						td.title 패스워드
+						td.content
+							input.form-control(type="password" name="userpw" placeholder="패스워드")
+			.text-center
+				button.btn.btn-success 로그인
+				button.btn.btn-warning(type="button" onclick="location.href='/user/join';") 회원가입

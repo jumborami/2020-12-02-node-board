@@ -1,0 +1,40 @@
+.pagination.my-5.justify-content-center
+	if page == 1
+		.page-item.disabled
+			a.page-link(href=`#`)
+				i.fa.fa-angle-double-left
+	else
+		.page-item
+			a.page-link(href=`/${menu}/list/1`)
+				i.fa.fa-angle-double-left
+	if prevPage == 0
+		.page-item.disabled
+			a.page-link(href=`#`)
+				i.fa.fa-angle-left
+	else
+		.page-item
+			a.page-link(href=`/${menu}/list/${prevPage}`)
+				i.fa.fa-angle-left
+	- for(let i=startPage; i<=endPage; i++)
+		if i == page
+			.page-item.active
+				a.page-link(style="background-color:#52a563" href=`/${menu}/list/${i}`)= i
+		else
+			.page-item
+				a.page-link(href=`/${menu}/list/${i}`)= i
+	if nextPage == 0
+		.page-item.disabled
+			a.page-link(href=`#`)
+				i.fa.fa-angle-right
+	else
+		.page-item
+			a.page-link(href=`/${menu}/list/${nextPage}`)
+				i.fa.fa-angle-right
+	if totalPage == page || totalRecord == 0
+		.page-item.disabled
+			a.page-link(href=`#`)
+				i.fa.fa-angle-double-right
+	else
+		.page-item.disabled
+			a.page-link(href=`/${menu}/list/${totalPage}`)
+				i.fa.fa-angle-double-right

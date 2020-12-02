@@ -1,0 +1,38 @@
+extends ../layout/default.pug
+block content
+	.wrap
+		div
+			h3.title= title
+		ul.my-3(style="list-style: none; padding: 0;")
+			li.d-flex.list.border-bottom
+				div(style="flex: 20% 0 0;").p-2.bg-color 번호
+				div.p-2= list.id
+			li.d-flex.list.border-bottom
+				div(style="flex: 20% 0 0;").p-2.bg-color 제목
+				div.p-2= list.title
+			li.d-flex.list.border-bottom
+				div(style="flex: 20% 0 0;").p-2.bg-color 작성자
+				div.p-2= list.writer
+			li.d-flex.list.border-bottom
+				div(style="flex: 20% 0 0;").p-2.bg-color 작성일
+				div.p-2= list.wdate
+			li.d-flex.list.border-bottom
+				div(style="flex: 20% 0 0;").p-2.bg-color 내용
+				div.p-2= list.content
+			if list.savefile
+				li.d-flex.list.border-bottom
+					div(style="flex: 20% 0 0;").p-2.bg-color 첨부파일
+					div.p-2
+						a(href=`/board/download?file=${list.savefile}&name=${list.realfile}`)= list.realfile
+			if list.imgSrc
+				li.d-flex.list.border-bottom
+					div(style="flex: 20% 0 0;").p-2.bg-color 첨부이미지
+					div.p-2
+						img.mw-100(src=`${list.imgSrc}`)
+		.p-3.text-center
+			button.btn.btn-success(onclick=`location.href='/board'`) 목록
+			if user && user.id
+				button.btn.btn-warning(onclick=`location.href='/board/write'`) 글쓰기
+			if user && user.id && user.id == list.uid
+				button.btn.btn-warning(onclick=`location.href='/board/update/${list.id}'`) 수정
+				button.btn.btn-dark(onclick=`onDelete(${list.id});`) 삭제
